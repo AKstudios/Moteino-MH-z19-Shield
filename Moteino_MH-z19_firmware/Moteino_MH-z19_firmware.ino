@@ -110,7 +110,8 @@ void sleep()
 void loop() 
 {
   sleep();
-  getCO2();
+  co2 = getCO2();
+  createDataPacket(co2);
   
   Serial.println(dataPacket);
   delay(5);
@@ -191,7 +192,7 @@ float getCO2()
 }
 
 // create datapacket ************************************************************
-void createDataPacket()
+void createDataPacket(float co2)
 {
   // define character arrays for all variables
   char _c[7];
